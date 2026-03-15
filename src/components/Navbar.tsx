@@ -73,6 +73,15 @@ const Navbar = () => {
             </a>
           </li>
           <li>
+            <a
+              href="https://drive.google.com/file/d/191ye6QAYxnK8fUk2sgfjzS-gCaTbTCr3/view?usp=sharing"
+              target="_blank"
+              data-cursor="disable"
+            >
+              <HoverLinks text="RESUME" />
+            </a>
+          </li>
+          <li>
             <a data-href="#contact" href="#contact">
               <HoverLinks text="CONTACT" />
             </a>

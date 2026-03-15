@@ -20,6 +20,16 @@ const Contact = () => {
                 +91 9442091322
               </a>
             </p>
+            <h4>Resume</h4>
+            <p>
+              <a
+                href="https://drive.google.com/file/d/191ye6QAYxnK8fUk2sgfjzS-gCaTbTCr3/view?usp=sharing"
+                target="_blank"
+                data-cursor="disable"
+              >
+                Google Drive <MdArrowOutward />
+              </a>
+            </p>
           </div>
           <div className="contact-box">
             <h4>Social</h4>
