@@ -36,12 +36,13 @@ const Navbar = () => {
     links.forEach((elem) => {
       let element = elem as HTMLAnchorElement;
       element.addEventListener("click", (e) => {
-        if (window.innerWidth > 1024) {
+        const section = elem.getAttribute("data-href");
+        // Only prevent default for internal scroll links
+        if (section && window.innerWidth > 1024) {
           e.preventDefault();
-          let elem = e.currentTarget as HTMLAnchorElement;
-          let section = elem.getAttribute("data-href");
           smoother.scrollTo(section, true, "top top");
         }
+        // External links (Resume, Leetcode) will work normally
       });
     });
     window.addEventListener("resize", () => {
