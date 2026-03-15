@@ -26,10 +26,10 @@ const imageUrls = [
   "/images/python.webp",
   "/images/tensorflow.webp",
   "/images/pytorch.webp",
-  "/images/pandas.webp",
+  "/images/node.webp",
   "/images/numpy.webp",
   "/images/matplotlib.webp",
-  "/images/scikit.webp",
+  "/images/react.webp",
 ];
 const textures = imageUrls.map((url) => textureLoader.load(url));
 
