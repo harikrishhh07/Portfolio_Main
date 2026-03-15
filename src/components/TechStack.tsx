@@ -35,8 +35,8 @@ const textures = imageUrls.map((url) => textureLoader.load(url));
 
 const sphereGeometry = new THREE.SphereGeometry(1, 28, 28);
 
-const spheres = [...Array(45)].map(() => ({
-  scale: [0.7, 1, 0.8, 1, 1][Math.floor(Math.random() * 5)],
+const spheres = [...Array(15)].map(() => ({
+  scale: [0.8, 1, 1, 1.1, 1.2][Math.floor(Math.random() * 5)],
 }));
 
 type SphereProps = {
@@ -167,10 +167,10 @@ const TechStack = () => {
           map: texture,
           emissive: "#ffffff",
           emissiveMap: texture,
-          emissiveIntensity: 0.3,
-          metalness: 0.5,
-          roughness: 1,
-          clearcoat: 0.1,
+          emissiveIntensity: 0.6,
+          metalness: 0.3,
+          roughness: 0.4,
+          clearcoat: 0.2,
         })
     );
   }, []);
