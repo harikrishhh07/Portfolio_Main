@@ -22,13 +22,6 @@ const imageUrls = [
   "/images/mysql.webp",
   "/images/typescript.webp",
   "/images/javascript.webp",
-  "/images/vue.webp",
-  "/images/graphql.webp",
-  "/images/docker.webp",
-  "/images/redis.webp",
-  "/images/postgresql.webp",
-  "/images/tailwind.webp",
-  "/images/jest.webp",
   // ML & Data Science
   "/images/python.webp",
   "/images/tensorflow.webp",
@@ -42,7 +35,7 @@ const textures = imageUrls.map((url) => textureLoader.load(url));
 
 const sphereGeometry = new THREE.SphereGeometry(1, 28, 28);
 
-const spheres = [...Array(22)].map(() => ({
+const spheres = [...Array(15)].map(() => ({
   scale: [0.9, 1, 1.1, 1.2, 1.3][Math.floor(Math.random() * 5)],
 }));
 
