@@ -74,7 +74,7 @@ const Navbar = () => {
           </li>
           <li>
             <a
-              href="https://drive.google.com/file/d/191ye6QAYxnK8fUk2sgfjzS-gCaTbTCr3/view?usp=sharing"
+              href="https://drive.google.com/file/d/1DL48ivFRZ_4B2Vf6fXY01YZ-8BL-l1k-/view?usp=sharing"
               target="_blank"
               data-cursor="disable"
             >
