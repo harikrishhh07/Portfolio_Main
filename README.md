@@ -9,7 +9,7 @@
 
 ## 🌐 Live Demo
 
-Visit the live portfolio: [Portfolio Website](https://vercel.com/harikrishhh07s-projects/portfolio-main)
+Visit the live portfolio: [Portfolio Website](https://harikrishhh-portfolio.vercel.app)
 
 ## ✨ Features
 
