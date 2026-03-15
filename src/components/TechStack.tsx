@@ -22,6 +22,13 @@ const imageUrls = [
   "/images/mysql.webp",
   "/images/typescript.webp",
   "/images/javascript.webp",
+  "/images/vue.webp",
+  "/images/graphql.webp",
+  "/images/docker.webp",
+  "/images/redis.webp",
+  "/images/postgresql.webp",
+  "/images/tailwind.webp",
+  "/images/jest.webp",
   // ML & Data Science
   "/images/python.webp",
   "/images/tensorflow.webp",
@@ -35,7 +42,7 @@ const textures = imageUrls.map((url) => textureLoader.load(url));
 
 const sphereGeometry = new THREE.SphereGeometry(1, 28, 28);
 
-const spheres = [...Array(15)].map(() => ({
+const spheres = [...Array(22)].map(() => ({
   scale: [0.9, 1, 1.1, 1.2, 1.3][Math.floor(Math.random() * 5)],
 }));
 
@@ -215,14 +222,6 @@ const TechStack = () => {
           <N8AO color="#0f002c" aoRadius={2} intensity={1.15} />
         </EffectComposer>
       </Canvas>
-      <a
-        href="https://drive.google.com/file/d/1DL48ivFRZ_4B2Vf6fXY01YZ-8BL-l1k-/view?usp=sharing"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="tech-stack-resume-link"
-      >
-        Resume
-      </a>
     </div>
   );
 };
