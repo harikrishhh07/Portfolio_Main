@@ -25,6 +25,18 @@
   border-radius: 50%;
   animation: loadingCircle 5s linear infinite;
 }
+@media only screen and (max-width: 768px) {
+  .landing-circle1 {
+    width: 150px;
+    height: 150px;
+    filter: blur(40px);
+  }
+}
+@media only screen and (max-width: 500px) {
+  .landing-circle1 {
+    display: none;
+  }
+}
 .nav-fade {
   position: fixed;
   top: 0;
@@ -97,6 +109,20 @@
   transform: translate(-50%, 100%) scale(1.4);
   opacity: 0;
 }
+@media only screen and (max-width: 768px) {
+  .character-rim {
+    width: 250px;
+    height: 250px;
+    filter: blur(35px);
+  }
+}
+@media only screen and (max-width: 500px) {
+  .character-rim {
+    width: 150px;
+    height: 150px;
+    filter: blur(25px);
+  }
+}
 .character-model {
   height: 80%;
   height: 80vh;
@@ -109,6 +135,18 @@
   z-index: 0;
   bottom: 50px;
   pointer-events: inherit;
+}
+@media only screen and (max-width: 768px) {
+  .character-model {
+    height: 60%;
+    bottom: 30px;
+  }
+}
+@media only screen and (max-width: 500px) {
+  .character-model {
+    height: 50%;
+    bottom: 20px;
+  }
 }
 .character-model::after {
   content: "";
@@ -156,6 +194,18 @@
   transform: translate(-50%, -50%);
   border-radius: 50%;
 }
+@media only screen and (max-width: 768px) {
+  .character-hover {
+    width: 200px;
+    height: 200px;
+  }
+}
+@media only screen and (max-width: 500px) {
+  .character-hover {
+    width: 120px;
+    height: 120px;
+  }
+}
 .landing-intro {
   position: absolute;
   z-index: 9;
@@ -177,6 +227,32 @@
   line-height: 28px;
   font-weight: 500;
   font-family: "Geist", sans-serif;
+}
+
+@media only screen and (max-width: 768px) {
+  .landing-intro h2 {
+    font-size: 16px;
+    letter-spacing: 1px;
+  }
+
+  .landing-intro h1 {
+    font-size: 24px;
+    line-height: 24px;
+    letter-spacing: 1px;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .landing-intro h2 {
+    font-size: 14px;
+    letter-spacing: 0.5px;
+  }
+
+  .landing-intro h1 {
+    font-size: 20px;
+    line-height: 20px;
+    letter-spacing: 0px;
+  }
 }
 
 /* .landing-intro h1 span {
