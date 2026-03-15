@@ -3,6 +3,7 @@
   max-width: var(--cMaxWidth);
   width: var(--cWidth);
   justify-content: space-between;
+  align-items: center;
   padding: 20px 0px;
   margin-bottom: -100px;
   box-sizing: border-box;
@@ -11,6 +12,7 @@
   transform: translateX(-50%);
   top: 0;
   z-index: 9999;
+  gap: 30px;
 }
 .header ul {
   font-size: 12px;
@@ -19,9 +21,10 @@
   margin: 0;
   padding: 0;
   list-style: none;
-  column-gap: 40px;
+  column-gap: 30px;
   row-gap: 6px;
-  align-items: end;
+  align-items: flex-end;
+  flex-shrink: 0;
 }
 .header ul li {
   margin-left: 0px;
@@ -31,23 +34,27 @@
   cursor: pointer;
 }
 .navbar-connect {
-  position: absolute;
+  position: relative;
   display: none;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
   font-size: 15px;
   letter-spacing: 1px;
   font-weight: 500;
+  flex: 1;
+  text-align: center;
+  white-space: nowrap;
 }
 .navbar-title {
   font-weight: 700;
   font-size: 14px;
   letter-spacing: 0.2px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
 }
 .logo {
-  height: 40px; /* Adjust as needed */
+  height: 40px;
   width: auto;
+  flex-shrink: 0;
 }
 @media only screen and (min-width: 500px) {
   .header {
@@ -57,6 +64,8 @@
     flex-direction: row;
     align-items: center;
     font-size: 14px;
+    column-gap: 40px;
+    row-gap: 0;
   }
   .header ul li {
     color: #eae5ec;
@@ -73,6 +82,7 @@
 @media only screen and (min-width: 1200px) {
   .header {
     padding: 35px 0px;
+    gap: 50px;
   }
   .header ul {
     column-gap: 80px;
