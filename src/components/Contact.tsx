@@ -58,6 +58,14 @@ const Contact = () => {
               Twitter <MdArrowOutward />
             </a>
             <a
+              href="https://leetcode.com/u/Harikrishhh/"
+              target="_blank"
+              data-cursor="disable"
+              className="contact-social"
+            >
+              Leetcode <MdArrowOutward />
+            </a>
+            <a
               href="https://www.instagram.com/hari_krishhh?igsh=MW5iZmxvNHB5ejJrYg%3D%3D&utm_source=qr"
               target="_blank"
               data-cursor="disable"
