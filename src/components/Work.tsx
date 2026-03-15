@@ -1,7 +1,7 @@
 import "./styles/Work.css";
 import WorkImage from "./WorkImage";
-import gsap from "gsap-trial";
-import { ScrollTrigger } from "gsap-trial/ScrollTrigger";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useEffect } from "react";
 
 // Import project images
