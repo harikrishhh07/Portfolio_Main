@@ -35,7 +35,13 @@ const textures = imageUrls.map((url) => textureLoader.load(url));
 
 const sphereGeometry = new THREE.SphereGeometry(1, 28, 28);
 
-const spheres = [...Array(15)].map(() => ({
+// Mobile optimization: reduce sphere count and geometry detail on mobile
+const isMobileDevice = typeof window !== "undefined" && window.innerWidth < 768;
+const sphereCount = isMobileDevice ? 8 : 15;
+const sphereGeometryDetail = isMobileDevice ? 20 : 28;
+const sphereGeometryOptimized = new THREE.SphereGeometry(1, sphereGeometryDetail, sphereGeometryDetail);
+
+const spheres = [...Array(sphereCount)].map(() => ({
   scale: [0.9, 1, 1.1, 1.2, 1.3][Math.floor(Math.random() * 5)],
 }));
 
@@ -55,6 +61,7 @@ function SphereGeo({
   isActive,
 }: SphereProps) {
   const api = useRef<RapierRigidBody | null>(null);
+  const geometry = isMobileDevice ? sphereGeometryOptimized : sphereGeometry;
 
   useFrame((_state, delta) => {
     if (!isActive) return;
@@ -92,7 +99,7 @@ function SphereGeo({
         castShadow
         receiveShadow
         scale={scale}
-        geometry={sphereGeometry}
+        geometry={geometry}
         material={material}
         rotation={[0.3, 1, 1]}
       />
@@ -135,6 +142,7 @@ function Pointer({ vec = new THREE.Vector3(), isActive }: PointerProps) {
 
 const TechStack = () => {
   const [isActive, setIsActive] = useState(false);
+  const isMobile = window.innerWidth < 768;
 
   useEffect(() => {
     const handleScroll = () => {
@@ -179,22 +187,33 @@ const TechStack = () => {
       <h2> My Techstack</h2>
 
       <Canvas
-        shadows
-        gl={{ alpha: true, stencil: false, depth: false, antialias: false }}
-        camera={{ position: [0, 0, 20], fov: 32.5, near: 1, far: 100 }}
-        onCreated={(state) => (state.gl.toneMappingExposure = 1.5)}
+        shadows={!isMobile} // Disable shadows on mobile for performance
+        gl={{
+          alpha: true,
+          stencil: false,
+          depth: false,
+          antialias: false,
+          powerPreference: isMobile ? "low-power" : "high-performance",
+        }}
+        camera={{
+          position: [0, 0, isMobile ? 25 : 20],
+          fov: isMobile ? 40 : 32.5,
+          near: 1,
+          far: 100,
+        }}
+        onCreated={(state) => (state.gl.toneMappingExposure = isMobile ? 1.2 : 1.5)}
         className="tech-canvas"
       >
-        <ambientLight intensity={1} />
+        <ambientLight intensity={isMobile ? 0.8 : 1} />
         <spotLight
           position={[20, 20, 25]}
           penumbra={1}
           angle={0.2}
           color="white"
-          castShadow
-          shadow-mapSize={[512, 512]}
+          castShadow={!isMobile}
+          shadow-mapSize={isMobile ? [256, 256] : [512, 512]}
         />
-        <directionalLight position={[0, 5, -4]} intensity={2} />
+        <directionalLight position={[0, 5, -4]} intensity={isMobile ? 1.5 : 2} />
         <Physics gravity={[0, 0, 0]}>
           <Pointer isActive={isActive} />
           {spheres.map((props, i) => (
@@ -208,12 +227,14 @@ const TechStack = () => {
         </Physics>
         <Environment
           files="/models/char_enviorment.hdr"
-          environmentIntensity={0.5}
+          environmentIntensity={isMobile ? 0.3 : 0.5}
           environmentRotation={[0, 4, 2]}
         />
-        <EffectComposer enableNormalPass={false}>
-          <N8AO color="#0f002c" aoRadius={2} intensity={1.15} />
-        </EffectComposer>
+        {!isMobile && (
+          <EffectComposer enableNormalPass={false}>
+            <N8AO color="#0f002c" aoRadius={2} intensity={1.15} />
+          </EffectComposer>
+        )}
       </Canvas>
     </div>
   );

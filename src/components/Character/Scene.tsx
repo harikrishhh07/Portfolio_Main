@@ -29,16 +29,28 @@ const Scene = () => {
 
       // Mobile optimization: reduce pixel ratio on mobile devices
       const isMobile = window.innerWidth < 1024;
-      const pixelRatio = isMobile ? Math.min(window.devicePixelRatio, 1) : window.devicePixelRatio;
+      const isTablet = window.innerWidth < 1400;
+      
+      // Adaptive pixel ratio: Desktop=2, Tablet=1.5, Mobile=1
+      let pixelRatio = window.devicePixelRatio;
+      if (isMobile) {
+        pixelRatio = Math.min(pixelRatio, 1);
+      } else if (isTablet) {
+        pixelRatio = Math.min(pixelRatio, 1.5);
+      }
 
       const renderer = new THREE.WebGLRenderer({
         alpha: true,
         antialias: !isMobile, // Disable antialiasing on mobile for better performance
+        preserveDrawingBuffer: false,
+        precision: isMobile ? "mediump" : "highp",
       });
       renderer.setSize(container.width, container.height);
       renderer.setPixelRatio(pixelRatio);
       renderer.toneMapping = THREE.ACESFilmicToneMapping;
-      renderer.toneMappingExposure = 1;
+      renderer.toneMappingExposure = isMobile ? 0.9 : 1;
+      renderer.shadowMap.enabled = true;
+      renderer.shadowMap.type = isMobile ? THREE.BasicShadowMap : THREE.PCFShadowMap;
       canvasDiv.current.appendChild(renderer.domElement);
 
       const camera = new THREE.PerspectiveCamera(14.5, aspect, 0.1, 1000);
