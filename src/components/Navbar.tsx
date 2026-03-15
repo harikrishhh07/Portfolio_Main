@@ -82,6 +82,15 @@ const Navbar = () => {
             </a>
           </li>
           <li>
+            <a
+              href="https://leetcode.com/u/Harikrishhh/"
+              target="_blank"
+              data-cursor="disable"
+            >
+              <HoverLinks text="LEETCODE" />
+            </a>
+          </li>
+          <li>
             <a data-href="#contact" href="#contact">
               <HoverLinks text="CONTACT" />
             </a>
