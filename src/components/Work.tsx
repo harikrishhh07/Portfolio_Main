@@ -11,8 +11,6 @@ import dnaSequence from "../assets/binary seach in microprocessor.png"; // This 
 import instagramClone from "../assets/portfolio.png"; // Using portfolio as instagram clone for now
 import javaOops from "../assets/ideathon6.0.png"; // Using ideathon as java-oops
 import leetCode from "../assets/monkeytype clone.png"; // Using monkeytype as leetcode
-import matplotlib from "../assets/portfolio.png"; // Duplicate, need proper image
-import monkeyType from "../assets/monkeytype clone.png";
 
 gsap.registerPlugin(ScrollTrigger);
 
