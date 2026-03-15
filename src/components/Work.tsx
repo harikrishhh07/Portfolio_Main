@@ -16,10 +16,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 const Work = () => {
   useEffect(() => {
-    // Only enable horizontal scroll on desktop (>900px)
     const isMobile = window.innerWidth < 900;
-    if (isMobile) return;
-
     let translateX: number = 0;
 
     function setTranslateX() {
@@ -40,24 +37,22 @@ const Work = () => {
       scrollTrigger: {
         trigger: ".work-section",
         start: "top top",
-        end: `+=${translateX}`, // Use actual scroll width
+        end: isMobile ? `+=${translateX * 0.6}` : `+=${translateX}`, // Reduced scroll distance on mobile
         scrub: true,
-        pin: true,
+        pin: isMobile ? false : true, // Disable pin on mobile
         id: "work",
       },
     });
 
     timeline.to(".work-flex", {
-      x: -translateX,
+      x: isMobile ? -translateX * 0.6 : -translateX,
       ease: "none",
     });
 
     // Handle window resize to clean up if needed
     const handleResize = () => {
-      if (window.innerWidth < 900) {
-        timeline.kill();
-        ScrollTrigger.getById("work")?.kill();
-      }
+      timeline.kill();
+      ScrollTrigger.getById("work")?.kill();
     };
 
     window.addEventListener("resize", handleResize);
