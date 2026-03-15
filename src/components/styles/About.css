@@ -73,18 +73,25 @@
 @media only screen and (max-width: 600px) {
   .about-section {
     height: auto;
-    padding: 40px 0;
+    padding: 50px 0;
+    width: 100%;
+    justify-content: center;
   }
   .about-me {
-    padding: 30px 0;
+    padding: 0 15px;
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 100%;
+    text-align: center;
   }
   .about-me h3 {
-    font-size: 18px;
-    letter-spacing: 3px;
+    font-size: 16px;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
   }
   .about-me p {
-    font-size: 24px;
+    font-size: 22px;
     font-weight: 500;
-    line-height: 28px;
+    line-height: 26px;
   }
 }
